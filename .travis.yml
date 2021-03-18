@@ -1,0 +1,20 @@
+language: java
+jdk: openjdk8
+
+dist: focal
+
+
+before_script: 
+- mvn install 
+- mvn clean
+
+script:  mvn package
+
+deploy:
+ provider: s3
+ access_key_id: $AWS_KEY
+ secret_access_key: $AWS_SECRET
+ bucket: 'didukhbucket'
+ skip_cleanup: true
+ acl: public_read
+ local_dir: ./target/eSchool.jar
