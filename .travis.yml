@@ -4,7 +4,7 @@ jdk: openjdk8
 services: mysql
 before_install: ./scriptci/travisMariadb.sh
 
-script:  mvn package -DskipTests
+script:  mvn package 
 
 deploy:
   provider: s3
