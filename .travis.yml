@@ -1,7 +1,8 @@
 language: java
 jdk: openjdk8
 
-install: ./scriptci/travisMariadb.sh
+services: mysql
+before install: ./scriptci/travisMariadb.sh
 
 script:  mvn package -DskipTests
 
