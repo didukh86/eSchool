@@ -6,6 +6,9 @@ before_install: ./scriptci/travisMariadb.sh
 
 script:  mvn package -DskipTests 
 
+before_deploy:
+  cp -Rf ./target/eschool.jar
+
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY"
@@ -13,8 +16,9 @@ deploy:
   bucket: eschoolbucket
   skip_cleanup: true
   acl: public_read
-  file: ./target/eschool.jar
   #local_dir: target
+  glob: 'eschool.jar'
+
 env:
  
   global:
