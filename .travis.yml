@@ -8,7 +8,8 @@ deploy:
   bucket: eschoolbucket
   skip_cleanup: true
   acl: public_read
-  local_dir: target
+  file: ./target/eschool.jar
+  #local_dir: target
 env:
  
   global:
