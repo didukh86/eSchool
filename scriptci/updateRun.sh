@@ -3,5 +3,5 @@ sudo apt update
 sudo apt install openssh-server
 echo "SSH server installed"
 
-ssh -i FirstKeyPair.pem.enc ubuntu@18.189.184.188 'bash -s' < ./scriptci/update.sh
+ssh -i ./FirstKeyPair.pem ubuntu@18.189.184.188 'bash -s' < ./scriptci/update.sh
 
