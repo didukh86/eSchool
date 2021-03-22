@@ -6,6 +6,12 @@ before_install:
   -in FirstKeyPair.pem.enc -out FirstKeyPair.pem -d
 - "./scriptci/travisMariadb.sh"
 script: mvn package -DskipTests
+before_deploy: 
+ - openssl aes-256-cbc -K $encrypted_422c0dcdaa4a_key -iv $encrypted_422c0dcdaa4a_iv
+  -in FirstKeyPair.pem.enc -out FirstKeyPair.pem -d
+ - eval "$(ssh-agent -s)"
+ - chmod 600 FirstKeyPair.pem
+ - ssh-add FirstKeyPair.pem 
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY"
@@ -14,7 +20,8 @@ deploy:
   skip_cleanup: true
   acl: public_read
   local_dir: target
-after_success:
+  
+  provider: script
   script: "./scriptci/updateRun.sh"
 env:
   global:
