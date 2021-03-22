@@ -13,10 +13,7 @@ deploy:
   acl: public_read
   local_dir: target
 after_deploy:
-  - openssl aes-256-cbc -K $encrypted_422c0dcdaa4a_key -iv $encrypted_422c0dcdaa4a_iv
-  -in FirstKeyPair.pem.enc -out FirstKeyPair.pem -d
   -  chmod 600 ./FirstKeyPair.pem
-
   script: ./scriptci/updateRun.sh
 
 env:
