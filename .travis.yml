@@ -14,7 +14,7 @@ deploy:
   skip_cleanup: true
   acl: public_read
   local_dir: target
-after_deploy:
+after_success:
   script: "./scriptci/updateRun.sh"
 env:
   global:
