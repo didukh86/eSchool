@@ -2,13 +2,10 @@ language: java
 jdk: openjdk8
 services: mysql
 before_install:
-
-- openssl aes-256-cbc -K $encrypted_8b4759cefac1_key -iv $encrypted_8b4759cefac1_iv
-  -in file.txt.enc -out /home/didukh/Desktop/scripts/file.txt -d
+- openssl aes-256-cbc -K $encrypted_5436437fa01a_key -iv $encrypted_5436437fa01a_iv
+  -in file.txt.enc -out file.txt -d
 - "./scriptci/travisMariadb.sh"
-
 script: mvn package -DskipTests
-
 deploy:
   provider: s3
   access_key_id: "$AWS_KEY"
