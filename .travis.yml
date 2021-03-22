@@ -13,7 +13,6 @@ deploy:
   acl: public_read
   local_dir: target
 
-  provider: script
   script: ./scriptci/updateRun.sh
 env:
   global:
