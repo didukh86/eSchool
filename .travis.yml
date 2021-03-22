@@ -21,7 +21,9 @@ deploy:
   skip_cleanup: true
   acl: public_read
   local_dir: target
-  script: "./scriptci/updateRun.sh"
+
+after_deploy
+  ./scriptci/updateRun.sh"
 env:
   global:
   - secure: eLIqRVPNn6sdnRU6vrN31fq5EkFNymseg2nDhPW8lzp4xydnUtAglXl98gE7+Bbrv1FpLU2F3k4DJ2CfOpr0NxlkXqtWqovNIlShEN6jVP7d5dDcJPfXFsZp0Gr3dO6BlVjEDOigrt/Rl0jCIwq8vYqQ5VXvXFj5186k8oAFb73u6UILOOQUKTvmsuro4hUvxCASXbNp2r5jES1f7ChzN5QA8qT1dMeXDzBQmGOM+vaTdKRS2D/eIjpDZzG+flj008BEm0c6AjkcMtCfa7H87E+PSD6lzrlBP8qEIHOnc0Ct2rj0fag4Pv3B0/rMxtXGe7h6yu6awEdSCBQjjJLJGMR7evRLjtsPf9IMb8d26OXDLgSJwgMni/w3eoFq/YcFhUK0ONkVC4TuXFUzgcSYAB7AHHfYWRrQERxWV38Vcad7ur31sLZSIrQ1rr553SbqN3/nrEutPDT6qIv6vP3N0NrctD7OXd02x8TYCRrU9IRrRGztATidWvVXHv8MDe3Mf4h1d5TRlSEAoYCIwr+Jap2xPDY7gCDbpn+P/UwOyg1oTAc+cm0L+yorfOauioFLF0I9nFL/rwMzLtfjt+Cc4RB+lfFK/8jizSMHSp+5+80eT1Du2EyjlA2FMQDUr24TziM4GsT95p8FL5nR2uNFqqpgJ+Z0OEZOH0YqXZrNKoI=
