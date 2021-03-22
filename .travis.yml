@@ -22,8 +22,8 @@ deploy:
   acl: public_read
   local_dir: target
 
-after_deploy
-  ./scriptci/updateRun.sh
+after_deploy:
+  - ./scriptci/updateRun.sh
 
 env:
   global:
