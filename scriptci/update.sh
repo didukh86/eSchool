@@ -11,9 +11,10 @@ sudo pkill -9 java
 sudo ufw allow 8080
 
 
-wget -O eschool.jar https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar
+sudo wget -O eschool.jar https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar
 sudo nohup java -jar eschool.jar &
-exit
+return 0
+fi
 
 
 
