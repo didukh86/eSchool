@@ -1,10 +1,18 @@
 #!/bin/bash
-date
-sudo apt install net-tools
-cd /home/ubuntu
 
-sudo killall -9 java
-wget https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar
-sudo java -jar eschool.jar
-exit
+sudo ufw allow ssh
+sudo ufw allow 8080
+sudo ufw allow 3306
+yes | sudo ufw enable
+
+sudo ufw deny 8080
+cd /home/ubuntu/
+sudo pkill -9 java
+sudo ufw allow 8080
+
+
+wget -O eschoolNew.jar https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar
+sudo java -jar eschoolNew.jar
+#sudo ufw allow 8080
+
 
