@@ -12,7 +12,7 @@ sudo ufw allow 8080
 
 
 wget -O eschool.jar https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar
-sudo java -jar eschool.jar &
+sudo nohup java -jar eschool.jar &
 exit
 
 
