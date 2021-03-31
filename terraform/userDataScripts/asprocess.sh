@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo echo DATASOURCE_URL="jdbc:mysql://10.0.1.100:3306/eschool?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true&&autoReconnect=true&useSSL=false" >> /etc/environment
+sudo echo DATASOURCE_URL="jdbc:mysql://10.0.2.100:3306/eschool?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true&&autoReconnect=true&useSSL=false" >> /etc/environment
 sudo echo DATASOURCE_PASSWORD=eschoolPassword >> /etc/environment
 sudo echo DATASOURCE_USERNAME=eschool >> /etc/environment 
 

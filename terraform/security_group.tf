@@ -11,6 +11,14 @@ resource "aws_security_group" "eSchool-internal" {
     protocol    = "tcp"
     cidr_blocks = ["10.0.1.0/24"]
   }
+
+    ingress {
+    description = "Allow internal communication in eschool_vpc"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["10.0.0.0/16"]
+  }
   
   ingress {
     description = "Port 8080"

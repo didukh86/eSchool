@@ -1,8 +1,8 @@
 resource "aws_instance" "eSchool-load-balancer" {
-  ami =  "ami-0767046d1677be5a0"
+  ami =  "ami-0d6aecf0f0425f42a"
   instance_type = "t2.micro"
-  availability_zone = "eu-central-1a"
-  key_name = "eschool-key"
+  availability_zone = "eu-west-3a"
+  key_name = "SoftServeKeyPair"
    
   user_data = file ("/home/didukh/Terraform/userDataScripts/loadBalancerscript.sh")
   

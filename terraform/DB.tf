@@ -1,9 +1,9 @@
 
 resource "aws_instance" "mariaDB" {
-  ami =  "ami-0767046d1677be5a0"
+  ami =  "ami-0d6aecf0f0425f42a"
   instance_type = "t2.micro"
-  availability_zone = "eu-central-1a"
-  key_name = "eschool-key"
+  availability_zone = "eu-west-3b"
+  key_name = "SoftServeKeyPair"
 
   user_data = file ("/home/didukh/Terraform/userDataScripts/mariaDBRun.sh")
   tags = {
@@ -19,8 +19,8 @@ resource "aws_instance" "mariaDB" {
 
 #Network Interface for DB
 resource "aws_network_interface" "database-mariadb-interface" {
-  subnet_id       = aws_subnet.subnet-one.id
-  private_ips     = ["10.0.1.100"]
+  subnet_id       = aws_subnet.subnet-two.id
+  private_ips     = ["10.0.2.100"]
   security_groups = [aws_security_group.eSchool-internal.id]
 
 }
