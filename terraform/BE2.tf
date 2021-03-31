@@ -18,8 +18,8 @@ resource "aws_instance" "eSchool-Backend2" {
 
 #Network Interface for BE2
 resource "aws_network_interface" "eSchool-Backend2-interface" {
-  subnet_id       = aws_subnet.subnet-two.id
-  private_ips     = ["10.0.2.20"]
+  subnet_id       = aws_subnet.subnet-three.id
+  private_ips     = ["10.0.3.10"]
   security_groups = [aws_security_group.eSchool-internal.id]
 
 }
