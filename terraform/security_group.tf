@@ -3,13 +3,17 @@ resource "aws_security_group" "eSchool-internal" {
   description = "Input and output internally"
   vpc_id = aws_vpc.eschool_vpc.id
 
+lifecycle {
+    create_before_destroy = true
+  }
+
 
   ingress {
     description = "Allow internal communication in eschool_vpc"
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["10.0.1.0/24"]
+    cidr_blocks = ["10.0.0.0/16"]
   }
 
     ingress {
@@ -24,6 +28,14 @@ resource "aws_security_group" "eSchool-internal" {
     description = "Port 8080"
     from_port   = 8080
     to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Port 80"
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

@@ -31,3 +31,24 @@ resource "aws_subnet" "subnet-three" {
   }
 }
 
+#Subnet 21 Publick Eschool
+resource "aws_subnet" "subnet-4" {
+  vpc_id = aws_vpc.eschool_vpc.id
+  #map_public_ip_on_launch = true
+  cidr_block = "10.0.21.0/24"
+  availability_zone = "eu-west-3b"
+  tags = {
+    "Name" = "EschoolPublicSubnetForLB_21"
+  }
+}
+
+#Subnet 31 Publick Eschool
+resource "aws_subnet" "subnet-5" {
+  vpc_id = aws_vpc.eschool_vpc.id
+  #map_public_ip_on_launch = true
+  cidr_block = "10.0.31.0/24"
+  availability_zone = "eu-west-3c"
+  tags = {
+    "Name" = "EschoolPublicSubnetForLB_31"
+  }
+}

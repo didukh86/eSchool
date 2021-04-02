@@ -1,5 +1,7 @@
+
+/*
 resource "aws_instance" "eSchool-Backend1" {
-  ami =  "ami-0d6aecf0f0425f42a"
+  ami =  "ami-c"
   instance_type = "t2.micro"
   availability_zone = "eu-west-3b"
   key_name = "SoftServeKeyPair" 
@@ -25,6 +27,8 @@ resource "aws_network_interface" "eSchool-Backend1-interface" {
   
 }
 
+
+*/
 /*
 #Elastick IP for BE1
 resource "aws_eip" "elastic-ip-Backend1" {

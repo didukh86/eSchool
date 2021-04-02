@@ -1,3 +1,5 @@
+
+/*
 resource "aws_instance" "eSchool-Backend2" {
   ami =  "ami-0d6aecf0f0425f42a"
   instance_type = "t2.micro"
@@ -23,7 +25,7 @@ resource "aws_network_interface" "eSchool-Backend2-interface" {
   security_groups = [aws_security_group.eSchool-internal.id]
 
 }
-
+*/
 /*
 #Elastick IP for BE2
 resource "aws_eip" "elastic-ip-Backend2" {

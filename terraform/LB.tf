@@ -1,3 +1,4 @@
+/*
 resource "aws_instance" "eSchool-load-balancer" {
   ami =  "ami-0d6aecf0f0425f42a"
   instance_type = "t2.micro"
@@ -15,7 +16,6 @@ resource "aws_instance" "eSchool-load-balancer" {
     network_interface_id = aws_network_interface.lb-interface.id
   }
 }
-
 
 #Elastick IP for Load Balancer
 resource "aws_eip" "elastic-ip-lb" {
@@ -35,3 +35,4 @@ resource "aws_network_interface" "lb-interface" {
   security_groups = [aws_security_group.eSchool-internal.id]
 
 }
+*/

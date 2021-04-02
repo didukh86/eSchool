@@ -36,3 +36,17 @@ resource "aws_route_table_association" "a" {
   subnet_id      = aws_subnet.subnet-one.id
   route_table_id = aws_route_table.eSchool-route-table.id
 }
+
+#Route Table association
+resource "aws_route_table_association" "b1" {
+  subnet_id      = aws_subnet.subnet-4.id
+  route_table_id = aws_route_table.eSchool-route-table.id
+}
+
+#Route Table association
+resource "aws_route_table_association" "c1" {
+  subnet_id      = aws_subnet.subnet-5.id
+  route_table_id = aws_route_table.eSchool-route-table.id
+}
+
+

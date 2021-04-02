@@ -3,7 +3,21 @@ resource "aws_instance" "bastion" {
   instance_type = "t2.micro"
   availability_zone = "eu-west-3a"
   key_name = "SoftServeKeyPair" 
-  user_data = file ("/home/didukh/Terraform/userDataScripts/asprocess.sh")
+#  user_data = file ("/home/didukh/Terraform/userDataScripts/asprocess.sh")
+
+  provisioner "file" {
+    source      = "/home/didukh/Documents/AWSCredentials/SoftServeKeyPair.pem"
+    destination = "/home/ubuntu/SoftServeKeyPair.pem"
+
+    connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    #password = "${var.root_password}"
+    host     = aws_instance.bastion.public_ip
+    private_key = file("/home/didukh/Documents/AWSCredentials/SoftServeKeyPair.pem")
+  }
+  }
+
 
   tags = {
     Name = "Bastion"

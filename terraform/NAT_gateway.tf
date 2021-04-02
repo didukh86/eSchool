@@ -36,11 +36,13 @@ resource "aws_route_table" "subnet-two-route-table" {
 #Route Table association b
 resource "aws_route_table_association" "b" {
   subnet_id      = aws_subnet.subnet-two.id
+  #route_table_id = aws_route_table.eSchool-route-table.id
   route_table_id = aws_route_table.subnet-two-route-table.id
 }
 
 #Route Table association c
 resource "aws_route_table_association" "c" {
   subnet_id      = aws_subnet.subnet-three.id
+  #route_table_id = aws_route_table.eSchool-route-table.id
   route_table_id = aws_route_table.subnet-two-route-table.id
 }
