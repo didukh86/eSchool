@@ -1,0 +1,17 @@
+
+[Service]
+
+ExecStart=/home/ubuntu/eschoolstart.sh
+Restart=always
+WorkingDirectory=/home/ubuntu
+User=root
+Restart=on-failure
+RestartSec=30
+
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

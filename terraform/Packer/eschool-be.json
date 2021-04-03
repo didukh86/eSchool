@@ -1,0 +1,65 @@
+{
+    "builders": [
+    
+    {
+        "type": "amazon-ebs",
+        "access_key": "",
+        "secret_key": "",
+        "region": "eu-west-3",
+        "ami_name": "eschool-backend-ami",
+        "source_ami": "ami-0d6aecf0f0425f42a",
+        "instance_type": "t2.micro",
+        "ssh_username": "ubuntu",
+        "vpc_id": "vpc-0fa40419023fc092a",
+        "subnet_id": "subnet-026999a48f05f8d90"
+    }
+    ],
+
+    "provisioners": [
+
+        {
+            "type": "file",
+            "source": "eschool-be-configure.sh",
+            "destination": "/home/ubuntu/eschool-be-configure.sh"
+        },
+        {
+            "type": "file",
+            "source": "eschool.service",
+            "destination": "/home/ubuntu/eschool.service"
+        },
+        {
+            "type": "file",
+            "source": "eschoolstart.sh",
+            "destination": "/home/ubuntu/eschoolstart.sh"
+        },
+
+        {
+            "type": "shell",
+            "environment_vars": [
+                "DATASOURCE_URL='jdbc:mysql://10.0.2.100:3306/eschool?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true&&autoReconnect=true&useSSL=false'",
+                "DATASOURCE_PASSWORD=eschoolPassword",
+                "DATASOURCE_USERNAME=eschool"],
+            "execute_command": "sudo -S bash -c '{{ .Path }}'",
+            "inline": [
+                "sleep 30",
+                "sudo apt-get update",
+                "sudo apt install -y mariadb-client-core-10.3",
+                "sudo apt-get install -y openjdk-8-jdk",
+                "cd /home/ubuntu",
+                "wget -O eschool.jar https://eschoolbucket.s3.us-east-2.amazonaws.com/eschool.jar",
+                "sudo chmod +x eschool.jar",
+                "sudo chmod +x eschoolstart.sh",
+                "sudo mv eschool.service /etc/systemd/system/",
+                "sudo chmod +x /etc/systemd/system/eschool.service",
+                "sudo systemctl daemon-reload",
+                "sudo systemctl enable eschool",
+                "sudo systemctl start eschool"
+
+            ] 
+            
+
+        }
+
+    ]
+    
+}

@@ -1,0 +1,10 @@
+
+        {
+            "type": "file",
+            "source": "eschool-be-configure.sh",
+            "destination": "/home/ubuntu/eschool-be-configure.sh"
+        },
+
+                    "inline": [
+                    "sudo bash /home/ubuntu/eschool-be-configure.sh"
+                ]
