@@ -1,3 +1,5 @@
+
+
 #Elastic ip for NAT gateway
 resource "aws_eip" "nat-elastic-ip" {
  vpc = true
@@ -46,3 +48,4 @@ resource "aws_route_table_association" "c" {
   #route_table_id = aws_route_table.eSchool-route-table.id
   route_table_id = aws_route_table.subnet-two-route-table.id
 }
+
